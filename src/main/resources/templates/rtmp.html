@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title>卫视直播</title>
+		
+		<style type="text/css">body{margin:0;padding:0px;font-family:"Microsoft YaHei",YaHei,"微软雅黑",SimHei,"黑体";font-size:14px}</style>
+
+	</head>
+
+	<body>
+        <div style="margin-top: 30px;padding-bottom:30px;text-align: center;">
+            <span><button onclick="dftv();">东方卫视</button>&nbsp;&nbsp;&nbsp;&nbsp;<button onclick="hunantv();">湖南卫视</button>&nbsp;&nbsp;&nbsp;&nbsp;<button onclick="gxtv();">广西卫视</button></span>
+
+        </div>
+
+
+
+		<div id="video" style="width: 600px; height: 400px;margin-left: 20%;"></div>
+
+
+
+		<script type="text/javascript" src="ckplayer/ckplayer.js"></script>
+		<script type="text/javascript">
+			var videoObject = {
+				container: '#video', //容器的ID或className
+				variable: 'player',//播放函数名称
+				autoplay:true,
+				live:true,
+                // video: 'rtmp://live.hkstv.hk.lxdns.com/live/hks'
+                video: 'rtmp://58.200.131.2:1935/livetv/hunantv',
+				// video: 'rtmp://192.168.2.106:1935/live/home',
+
+
+			};
+			//var player = new ckplayer(videoObject);
+
+
+			function hunantv() {
+                videoObject.video = 'rtmp://58.200.131.2:1935/livetv/hunantv';
+                var player = new ckplayer(videoObject);
+            }
+            function gxtv() {
+                videoObject.video = 'rtmp://58.200.131.2:1935/livetv/gxtv';
+                var player = new ckplayer(videoObject);
+            }
+            function dftv() {
+                videoObject.video = 'rtmp://58.200.131.2:1935/livetv/dftv';
+                var player = new ckplayer(videoObject);
+            }
+
+		</script>
+	</body>
+
+</html>
